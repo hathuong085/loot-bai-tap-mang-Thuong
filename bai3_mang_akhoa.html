@@ -1,123 +1,126 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+
 <body>
     <script>
 //chương trình tạo ra mảng 2 chiều kích cỡ (5 x 5) gồm các số  từ 20 đến 90
-        let m=new Array(5);
-        for (let i=0;i<5;i++){
-            m[i]=new Array(5)
+        let m = new Array(5);
+        for (let i = 0; i < 5; i++) {
+            m[i] = new Array(5)
         }
-        for (let i=0;i<5;i++){
-            for (let j=0;j<5;j++){
-                m[i][j]=Math.floor(Math.random() * 71 + 20);
-                document.write(m[i][j]+"    ;   ")
+        for (let i = 0; i < 5; i++) {
+            for (let j = 0; j < 5; j++) {
+                m[i][j] = Math.floor(Math.random() * 71 + 20);
+                document.write(m[i][j] + "    ;   ")
             }
             document.write("<br>")
         }
 //Hiển thị giá trị lớn nhất trong mảng 2 chiều
-        let min=m[0][0];
-        for (let i=0;i<5;i++){
-            for (let j=0;j<5;j++){
-                if (m[i][j]<min){
-                    min=m[i][j]
+        let min = m[0][0];
+        for (let i = 0; i < 5; i++) {
+            for (let j = 0; j < 5; j++) {
+                if (m[i][j] < min) {
+                    min = m[i][j]
                 }
             }
         }
-        document.write("số nhỏ nhất trong mảng là:  " +min);
+        document.write("số nhỏ nhất trong mảng là:  " + min);
         document.write("<br>");
 
 //Hiển thị giá trị nhỏ nhất trong mảng 2 chiều
-        let max=m[0][0];
-        for (let i=0;i<5;i++){
-            for (let j=0;j<5;j++){
-                if (m[i][j]>max){
-                    max=m[i][j]
+        let max = m[0][0];
+        for (let i = 0; i < 5; i++) {
+            for (let j = 0; j < 5; j++) {
+                if (m[i][j] > max) {
+                    max = m[i][j]
                 }
             }
         }
-        document.write("số lớn nhất trong mảng là:  " +max);
+        document.write("số lớn nhất trong mảng là:  " + max);
         document.write("<br>");
 //Hiển thị số lượng các số chẵn có trong mảng 2 chiều
-        let sochan=0;
-        for (let i=0;i<5;i++){
-            for (let j=0;j<5;j++){
-                if (m[i][j]%2==0){
-                   sochan+=1;
+        let sochan = 0;
+        for (let i = 0; i < 5; i++) {
+            for (let j = 0; j < 5; j++) {
+                if (m[i][j] % 2 == 0) {
+                    sochan += 1;
                 }
             }
         }
-        document.write("số lượng số chẵn trong mảng là:  " +sochan);
+        document.write("số lượng số chẵn trong mảng là:  " + sochan);
         document.write("<br>");
 //Hiển thị số lượng các số là bội của 5 có trong mảng 2 chiều
-        let soboi5=0;
-        for (let i=0;i<5;i++){
-            for (let j=0;j<5;j++){
-                if (m[i][j]%5==0){
-                   soboi5+=1;
+        let soboi5 = 0;
+        for (let i = 0; i < 5; i++) {
+            for (let j = 0; j < 5; j++) {
+                if (m[i][j] % 5 == 0) {
+                    soboi5 += 1;
                 }
             }
         }
-        document.write("số lượng số bội của 5 trong mảng là:  " +soboi5);
+        document.write("số lượng số bội của 5 trong mảng là:  " + soboi5);
         document.write("<br>");
 //Hiển thị số lượng các số nguyên tố có trong mảng 2 chiều
-        let songto=0;
-        for (let i=0;i<5;i++){
-            for (let j=0;j<5;j++){
-                count=0;
-                for (let y = 1; y <= m[i][j]/ 2; y++) { if ( m[i][j]%y== 0) { count++} };
-                if (count==1){
-                    document.write(m[i][j]+" ;   ")
-                    songto+=1;
+        let songto = 0;
+        for (let i = 0; i < 5; i++) {
+            for (let j = 0; j < 5; j++) {
+                count = 0;
+                for (let y = 1; y <= m[i][j] / 2; y++) { if (m[i][j] % y == 0) { count++ } };
+                if (count == 1) {
+                    document.write(m[i][j] + " ;   ")
+                    songto += 1;
                 }
             }
         }
-        document.write("số lượng số nguyên tố trong mảng là:  " +songto);
+        document.write("số lượng số nguyên tố trong mảng là:  " + songto);
         document.write("<br>");
 //Hiển thị dòng có tổng các giá trị của dòng đó lớn nhất của mảng 2 chiều
-        let maxsum=0;
+        let maxsum = 0;
         let t;
-        for (let i=0;i<5;i++){
-            let sum=0;
-            for (let j=0;j<5;j++){
-                sum+=m[i][j]    
+        for (let i = 0; i < 5; i++) {
+            let sum = 0;
+            for (let j = 0; j < 5; j++) {
+                sum += m[i][j]
             }
-            if (sum>maxsum){
-                maxsum=sum;
-                t=i;
+            if (sum > maxsum) {
+                maxsum = sum;
+                t = i;
             }
         }
-        document.write("dòng có tổng lớn nhất là dòng    "+t+"  :        "+m[t].join(' + ')+"="+maxsum);
+        document.write("dòng có tổng lớn nhất là dòng    " + t + "  :        " + m[t].join(' + ') + "=" + maxsum);
         document.write("<br>");
 //Hiển thị tổng các giá trị trên đường chéo chính của mảng 2 chiều
-        let sumch=0;
-        for (let i=0;i<5;i++){
-            sumch+=m[i][i];
+        let sumch = 0;
+        for (let i = 0; i < 5; i++) {
+            sumch += m[i][i];
         }
-        document.write("tổng giá trị của đường chéo chính của mangr là:   "+sumch);
+        document.write("tổng giá trị của đường chéo chính của mangr là:   " + sumch);
         document.write("<br>");
 //Hiển thị tổng các giá trị trên đường chéo phụ của mảng 2 chiều
-        let sumph=0;
-        for (let i=0;i<5;i++){
-            sumph+=m[i][4-i];
+        let sumph = 0;
+        for (let i = 0; i < 5; i++) {
+            sumph += m[i][4 - i];
         }
-        document.write("tổng giá trị của đường chéo phụ của mảng là:   "+sumph);
+        document.write("tổng giá trị của đường chéo phụ của mảng là:   " + sumph);
         document.write("<br>");
 //Hiển thị tổng các giá trị ở đường biên của mảng 2 chiều
-        let sumbien=0;
-        for (let i=0;i<5;i++){
-            if (i==0||i==4){
-                for(let j=0;j<5;j++){
-                    sumbien+=m[i][j]
+        let sumbien = 0;
+        for (let i = 0; i < 5; i++) {
+            if (i == 0 || i == 4) {
+                for (let j = 0; j < 5; j++) {
+                    sumbien += m[i][j]
                 }
             }
-            else {sumbien+=m[i][0]+m[i][4]}
+            else { sumbien += m[i][0] + m[i][4] }
         }
-        document.write("tổng giá trị của đường biên quanh mảng là:   "+sumbien);
+        document.write("tổng giá trị của đường biên quanh mảng là:   " + sumbien);
     </script>
 </body>
+
 </html>
